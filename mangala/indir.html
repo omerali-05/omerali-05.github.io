@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Mangala - Online &amp; İnternetsiz</title>
+  <meta name="description" content="Yüzyıllardır oynanan geleneksel Türk strateji ve zeka oyunu Mangala, %100 reklamsız deneyimiyle Google Play'de!">
+  <meta name="theme-color" content="#0a1122">
+
+  <!-- Rich Social Link Preview (Instagram / WhatsApp / X) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mangala - Online &amp; İnternetsiz">
+  <meta property="og:description" content="Online, Bluetooth ile veya yapay zekaya karşı %100 reklamsız Mangala oyna!">
+  <meta property="og:image" content="https://omerali-05.github.io/mangala/public/feature-graphic.png">
+  <meta property="og:url" content="https://omerali-05.github.io/mangala/indir.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mangala - Online &amp; İnternetsiz">
+  <meta name="twitter:description" content="Online, Bluetooth ile veya yapay zekaya karşı %100 reklamsız Mangala oyna!">
+  <meta name="twitter:image" content="https://omerali-05.github.io/mangala/public/feature-graphic.png">
+
+  <link rel="icon" type="image/png" href="./public/app-logo.png">
+  <style>
+    @font-face {
+      font-family: 'ComfortaaVar';
+      src: url('./src/fonts/Comfortaa-Variable.ttf') format('truetype');
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    :root {
+      --bg-top: #182846;
+      --bg-mid: #0a1122;
+      --bg-deep: #040711;
+      --card-bg: rgba(15, 23, 42, 0.92);
+      --gold-light: #fde047;
+      --gold-mid: #f59e0b;
+      --gold-dark: #d97706;
+      --text-main: #f8fafc;
+      --text-muted: #cbd5e1;
+      --text-dim: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      min-height: 100%;
+      width: 100%;
+      overflow-x: hidden;
+      background: radial-gradient(circle at 50% 18%, var(--bg-top) 0%, var(--bg-mid) 58%, var(--bg-deep) 100%);
+      background-color: var(--bg-deep);
+      color: var(--text-main);
+      font-family: 'ComfortaaVar', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: max(20px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      background: var(--card-bg);
+      border: 1.5px solid rgba(251, 191, 36, 0.36);
+      border-radius: 28px;
+      padding: 22px 20px 24px;
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.78),
+        0 0 42px rgba(245, 158, 11, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      text-align: center;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      background: rgba(2, 6, 23, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+      padding: 3px;
+      gap: 2px;
+    }
+
+    .lang-btn {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: var(--text-dim);
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 5px 11px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold-mid));
+      color: #090d16;
+    }
+
+    .logo-wrap {
+      width: 112px;
+      height: 112px;
+      margin: 4px auto 14px;
+      border-radius: 26px;
+      overflow: hidden;
+      border: 2.5px solid rgba(251, 191, 36, 0.65);
+      box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.75),
+        0 0 32px rgba(245, 158, 11, 0.32);
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand-title {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      line-height: 1.1;
+      background: linear-gradient(180deg, #fffbeb 0%, #fde047 42%, #f59e0b 85%, #d97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 4px 14px rgba(245, 158, 11, 0.42));
+    }
+
+    .brand-sub {
+      margin-top: 8px;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .adfree-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid rgba(16, 185, 129, 0.48);
+      color: #6ee7b7;
+      font-size: 12.5px;
+      font-weight: 800;
+    }
+
+    .cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      width: 100%;
+      margin-top: 18px;
+      padding: 15px 20px;
+      border-radius: 18px;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-mid) 55%, var(--gold-dark) 100%);
+      color: #090d16;
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      box-shadow:
+        0 10px 28px rgba(245, 158, 11, 0.48),
+        inset 0 1px 1px rgba(255, 255, 255, 0.65);
+      transition: transform 0.14s ease, box-shadow 0.14s ease;
+    }
+
+    .cta-btn:active {
+      transform: scale(0.985);
+    }
+
+    .cta-btn svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    .secondary-row {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .copy-btn {
+      appearance: none;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(30, 41, 59, 0.72);
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      width: 100%;
+      justify-content: center;
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .copy-btn.copied {
+      border-color: rgba(16, 185, 129, 0.65);
+      color: #6ee7b7;
+    }
+
+    .webview-hint {
+      margin-top: 10px;
+      font-size: 11.5px;
+      line-height: 1.45;
+      color: var(--text-dim);
+      padding: 0 6px;
+    }
+
+    .features-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .feat-card {
+      background: rgba(30, 41, 59, 0.76);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 12px 12px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-width: 0;
+    }
+
+    .feat-card.emerald { border-color: rgba(16, 185, 129, 0.42); }
+    .feat-card.purple { border-color: rgba(168, 85, 247, 0.42); }
+    .feat-card.cyan { border-color: rgba(56, 189, 248, 0.42); }
+    .feat-card.amber { border-color: rgba(245, 158, 11, 0.42); }
+
+    .feat-icon {
+      font-size: 20px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .feat-label {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+
+    .footer {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    .footer a {
+      color: #7dd3fc;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="top-bar">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" class="lang-btn active" id="btn-lang-tr">TR</button>
+        <button type="button" class="lang-btn" id="btn-lang-en">EN</button>
+      </div>
+    </div>
+
+    <div class="logo-wrap">
+      <img src="./public/app-logo.png" alt="Mangala">
+    </div>
+
+    <h1 class="brand-title">MANGALA</h1>
+    <p class="brand-sub" id="txt-sub">Geleneksel Türk Strateji ve Zeka Oyunu</p>
+    <div class="adfree-badge" id="txt-adfree">🚫 %100 Reklamsız Deneyim</div>
+
+    <a
+      id="btn-playstore"
+      class="cta-btn"
+      href="https://play.google.com/store/apps/details?id=com.omerali.mangala"
+      rel="noopener noreferrer"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M3.61 1.814L13.793 12 3.61 22.186a1.75 1.75 0 0 1-.61-1.344V3.158c0-.535.235-1.016.61-1.344zm11.24 11.243l2.637 2.637-11.21 6.418 8.573-9.055zm3.78-1.503l2.49 1.425c.78.447.78 1.595 0 2.042l-2.49 1.425-2.89-2.89 2.89-2.002zM6.277 1.888l11.21 6.418-2.637 2.637-8.573-9.055z"/>
+      </svg>
+      <span id="txt-cta">Google Play'de Aç</span>
+    </a>
+
+    <div class="secondary-row">
+      <button type="button" class="copy-btn" id="btn-copy">
+        <span aria-hidden="true">🔗</span>
+        <span id="txt-copy">Bağlantıyı Kopyala</span>
+      </button>
+    </div>
+
+    <p class="webview-hint" id="txt-hint">
+      Instagram içinde doğrudan açılmazsa sağ üstteki ⋯ menüsünden “Tarayıcıda Aç” seçeneğini kullanabilirsin.
+    </p>
+
+    <section class="features-grid" aria-label="Özellikler">
+      <div class="feat-card purple">
+        <span class="feat-icon" aria-hidden="true">🤖</span>
+        <span class="feat-label" id="feat-0">Akıllı Bot &amp; Canlı Koç</span>
+      </div>
+      <div class="feat-card emerald">
+        <span class="feat-icon" aria-hidden="true">🌐</span>
+        <span class="feat-label" id="feat-1">Canlı Online &amp; Arkadaşlar</span>
+      </div>
+      <div class="feat-card cyan">
+        <span class="feat-icon" aria-hidden="true">📶</span>
+        <span class="feat-label" id="feat-2">İnternetsiz Bluetooth</span>
+      </div>
+      <div class="feat-card amber">
+        <span class="feat-icon" aria-hidden="true">🎨</span>
+        <span class="feat-label" id="feat-3">Özel Temalar &amp; Çoklu Dil</span>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <a href="./privacy-policy.html" id="txt-privacy">Gizlilik Politikası</a>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var PLAY_URL = 'https://play.google.com/store/apps/details?id=com.omerali.mangala';
+      var INTENT_URL = 'intent://details?id=com.omerali.mangala#Intent;scheme=market;package=com.android.vending;S.browser_fallback_url=' + encodeURIComponent(PLAY_URL) + ';end';
+
+      var COPY = {
+        tr: {
+          title: 'Mangala - Online & İnternetsiz',
+          sub: 'Geleneksel Türk Strateji ve Zeka Oyunu',
+          adfree: '🚫 %100 Reklamsız Deneyim',
+          cta: "Google Play'de Aç",
+          copy: 'Bağlantıyı Kopyala',
+          copied: '✓ Bağlantı Kopyalandı',
+          hint: 'Instagram içinde doğrudan açılmazsa sağ üstteki ⋯ menüsünden “Tarayıcıda Aç” seçeneğini kullanabilirsin.',
+          features: [
+            'Akıllı Bot & Canlı Koç',
+            'Canlı Online & Arkadaşlar',
+            'İnternetsiz Bluetooth',
+            'Özel Temalar & Çoklu Dil'
+          ],
+          privacy: 'Gizlilik Politikası'
+        },
+        en: {
+          title: 'Mangala - Online & Offline',
+          sub: 'Traditional Turkish Strategy & Mind Game',
+          adfree: '🚫 100% Ad-Free Experience',
+          cta: 'Open in Google Play',
+          copy: 'Copy Store Link',
+          copied: '✓ Link Copied',
+          hint: 'If it does not open inside Instagram, tap ⋯ in the top corner and select “Open in browser”.',
+          features: [
+            'Smart AI & Live Coach',
+            'Live Online & Friends',
+            'Offline Bluetooth',
+            'Custom Themes & Multi-Lang'
+          ],
+          privacy: 'Privacy Policy'
+        }
+      };
+
+      var activeLang = 'tr';
+      var copyResetTimer = null;
+
+      function applyLang(lang) {
+        activeLang = lang === 'en' ? 'en' : 'tr';
+        var dict = COPY[activeLang];
+        document.documentElement.lang = activeLang;
+        document.title = dict.title;
+        document.getElementById('txt-sub').textContent = dict.sub;
+        document.getElementById('txt-adfree').textContent = dict.adfree;
+        document.getElementById('txt-cta').textContent = dict.cta;
+        document.getElementById('txt-copy').textContent = dict.copy;
+        document.getElementById('txt-hint').textContent = dict.hint;
+        document.getElementById('txt-privacy').textContent = dict.privacy;
+        for (var i = 0; i < 4; i++) {
+          document.getElementById('feat-' + i).textContent = dict.features[i];
+        }
+        document.getElementById('btn-lang-tr').classList.toggle('active', activeLang === 'tr');
+        document.getElementById('btn-lang-en').classList.toggle('active', activeLang === 'en');
+      }
+
+      var navLang = (navigator.language || '').toLowerCase();
+      if (navLang && !navLang.startsWith('tr')) {
+        applyLang('en');
+      } else {
+        applyLang('tr');
+      }
+
+      document.getElementById('btn-lang-tr').addEventListener('click', function () { applyLang('tr'); });
+      document.getElementById('btn-lang-en').addEventListener('click', function () { applyLang('en'); });
+
+      // Break out of Instagram's Android WebView straight into Google Play Store app
+      var playBtn = document.getElementById('btn-playstore');
+      if (/Android/i.test(navigator.userAgent)) {
+        playBtn.setAttribute('href', INTENT_URL);
+      }
+
+      var copyBtn = document.getElementById('btn-copy');
+      copyBtn.addEventListener('click', function () {
+        var finishCopy = function () {
+          clearTimeout(copyResetTimer);
+          copyBtn.classList.add('copied');
+          document.getElementById('txt-copy').textContent = COPY[activeLang].copied;
+          copyResetTimer = setTimeout(function () {
+            copyBtn.classList.remove('copied');
+            document.getElementById('txt-copy').textContent = COPY[activeLang].copy;
+          }, 2200);
+        };
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(PLAY_URL).then(finishCopy).catch(function () {
+            fallbackCopy(PLAY_URL, finishCopy);
+          });
+        } else {
+          fallbackCopy(PLAY_URL, finishCopy);
+        }
+      });
+
+      function fallbackCopy(text, done) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (_) {}
+        document.body.removeChild(ta);
+        done();
+      }
+    })();
+  </script>
+</body>
+</html>
